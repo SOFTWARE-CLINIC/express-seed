@@ -7,7 +7,7 @@
 ### Building the image
 
 ```
-$ docker build -t danielpacak/express-seed .
+$ docker build --tag danielpacak/express-seed .
 ```
 
 Run `docker images` and see if the image `danielpacak/express-seed` shows.
@@ -15,10 +15,18 @@ Run `docker images` and see if the image `danielpacak/express-seed` shows.
 ### Running the image
 
 ```
-$ docker run --name express-seed --user node --publish 49160:8080 --detach danielpacak/express-seed
+$ docker run --name express-seed \
+--user node \
+--publish 49160:8080 \
+--detach \
+--memory 300M \
+--memory-swap 1G \
+danielpacak/express-seed
 ```
 
 Head over to [http://localhost:49160](http://localhost:49160) and your app should be live.
+Navigate to [http://localhost:49160](http://localhost:49160/env) to see the user
+[environment properties](https://nodejs.org/api/process.html#process_process_env).
 
 To print the output of the app use the `logs` command:
 
