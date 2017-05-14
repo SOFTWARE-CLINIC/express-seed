@@ -15,15 +15,25 @@ Run `docker images` and see if the image `danielpacak/express-seed` shows.
 ### Running the image
 
 ```
-$ docker run --name express-seed -p 49160:8080 -d danielpacak/express-seed
+$ docker run --name express-seed --user node --publish 49160:8080 --detach danielpacak/express-seed
 ```
 
 Head over to [http://localhost:49160](http://localhost:49160) and your app should be live.
 
-To print the output of the app `docker logs express-seed`.
+To print the output of the app use the `logs` command:
+
+```
+$ docker logs express-seed
+```
+
 If you need to go inside the container you can use the `exec` command:
 
 ```
 $ docker exec -it express-seed /bin/bash
 ```
+
+## Links
+
+* [Dockerizing a Node.js web app](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
+* [Docker and Node.js Best Practices](https://github.com/nodejs/docker-node/blob/master/docs/BestPractices.md)
 
