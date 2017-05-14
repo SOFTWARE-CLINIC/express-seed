@@ -18,6 +18,7 @@ Run `docker images` and see if the image `danielpacak/express-seed` shows.
 $ docker run --name express-seed \
 --env NODE_ENV=production \
 --user node \
+--init \
 --publish 49160:8080 \
 --detach \
 --memory 300M \
