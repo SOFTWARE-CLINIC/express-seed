@@ -37,7 +37,7 @@ $ docker logs express-seed
 If you need to go inside the container you can use the `exec` command:
 
 ```
-$ docker exec -it express-seed /bin/bash
+$ docker exec --interactive --tty express-seed /bin/bash
 ```
 
 ## Links
